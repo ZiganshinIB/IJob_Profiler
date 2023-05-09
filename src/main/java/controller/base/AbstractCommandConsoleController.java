@@ -5,7 +5,7 @@ import view.base.ConsoleView;
 
 import java.util.List;
 
-public abstract class AbstactConsoleController implements Controller {
+public abstract class AbstractCommandConsoleController implements Controller {
     protected FabricModel fabricModel;
     protected ConsoleView consoleView;
 
@@ -18,10 +18,10 @@ public abstract class AbstactConsoleController implements Controller {
     /**
      * Запуск
      */
-    public AbstactConsoleController(FabricModel fabricModel, ConsoleView consoleView){
+    public AbstractCommandConsoleController(FabricModel fabricModel, ConsoleView consoleView){
         this.fabricModel = fabricModel;
         this.consoleView = consoleView;
-        consoleView.setCommandList(getCommandList());
+        upload();
     }
     @Override
     public void start() {
@@ -32,7 +32,16 @@ public abstract class AbstactConsoleController implements Controller {
         }
     }
 
+    /**
+     * Возвращает список команд
+     * Тут необходимо прописать команды
+     * @return Список команд
+     */
     protected abstract List<String> getCommandList();
 
+
+    protected void upload(){
+        consoleView.setCommandList(getCommandList());
+    }
 
 }

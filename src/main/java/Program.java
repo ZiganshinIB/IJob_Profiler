@@ -1,8 +1,11 @@
-import controller.ConsoleControllerUser;
+import controller.CommandConsoleControllerMain;
 import model.MyFabricModel;
+import model.Trophy;
 import view.ConsoleViewUser;
 import view.base.ConsoleView;
 
+import java.lang.reflect.Field;
+import java.util.List;
 import java.util.Scanner;
 
 public class Program {
@@ -11,7 +14,8 @@ public class Program {
         Scanner scanner = new Scanner(System.in);
         MyFabricModel models = new MyFabricModel();
         ConsoleView consoleView = new ConsoleViewUser(scanner);
-        ConsoleControllerUser controller = new ConsoleControllerUser(models, consoleView);
+//
+        CommandConsoleControllerMain controller = new CommandConsoleControllerMain(models, consoleView);
         controller.start();
     }
 }

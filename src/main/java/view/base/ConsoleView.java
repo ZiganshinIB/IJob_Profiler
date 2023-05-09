@@ -1,10 +1,12 @@
 package view.base;
 
+import model.base.Model;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public abstract class ConsoleView implements View, InputView {
+public abstract class ConsoleView implements View, InputView, ModelViewer, ViewList {
     protected static final Integer STOP_CODE_COMMAND = -1;
     protected Scanner scanner;
     /**
@@ -113,4 +115,37 @@ public abstract class ConsoleView implements View, InputView {
     public static int getStop_CODE_COMMAND (){
         return STOP_CODE_COMMAND;
     }
+
+    /**
+     * Показать объекты
+     * @param list Список Объектов
+     */
+    @Override
+    public void showSimpleList(List list) {
+        for (var e: list) {
+            showMessage(e.toString());
+        }
+    }
+
+    /**
+     * Показать объекты c итерации
+     * @param list Список Объектов
+     */
+    @Override
+    public void showItemList(List list) {
+        for (int i = 0; i < list.size(); i++)
+            showMessage("\t" + i + ". " + list.get(i).toString());
+
+    }
+
+    /**
+     * Показать объект
+     * @param model Объект
+     */
+    @Override
+    public void showModel(ModelForm model) {
+        showMessage(model.getFormsView());
+    }
+
+
 }

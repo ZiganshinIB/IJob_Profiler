@@ -1,42 +1,55 @@
 package model;
 
-import model.base.AbstractFabricModel;
-import model.base.FabricModel;
+import model.base.AbstractFabricListModel;
 import model.base.Model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
-public class MyFabricModel extends AbstractFabricModel {
-    private static final List<Model> models = new ArrayList<Model>();
+public class MyFabricModel extends AbstractFabricListModel {
 
-    @Override
-    public int getCount() {
-        return 0;
+    /**
+     * Конструктор
+    */
+    public MyFabricModel() {
+        super(new ArrayList<>(), new HashSet<>());
     }
 
+    // TODO: 09.05.2023 Не помню для чего, но неделю назад думал что очень сильно пригодится  
     @Override
-    public void addModel(Model model) {
-        models.add(model);
+    protected void createTypesModel() {
+        typesModel.add("Пользователь");
     }
 
+
+    /**
+     * получить тип Объекта
+     *
+     * @param model Объект
+     * @return Название типа
+     */
     @Override
-    public void remove(Model model) {
-
-    }
-
-    @Override
-    public void removeAll(Model model) {
-
-    }
-
-    @Override
-    public void printAllInformation() {
-
-    }
-
-    @Override
-    public String getInfo() {
+    public String getTypeModel(Model model) {
         return null;
     }
+
+    /**
+     * Получить объекты относящися к типу
+     *
+     * @param typeName Название типа
+     * @return Список объектов указанного типа
+     */
+    @Override
+    public List<Model> getModelsIsType(String typeName) {
+        List<Model> resList = new ArrayList<>();
+        for (var model: models) 
+            if(isModelType(model, typeName))
+                resList.add(model);
+        return resList;
+    }
+
+
+
+
 }

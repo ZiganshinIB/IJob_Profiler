@@ -1,5 +1,10 @@
 package view.base;
 
-public interface View {
+import java.util.List;
+
+public interface View<T> {
+    /**
+     * Показать Команды
+     */
     void showCommand();
 }

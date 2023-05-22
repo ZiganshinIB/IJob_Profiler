@@ -69,4 +69,20 @@ public interface FabricModel {
      */
     List<String> getTypeNames();
 
+    /**
+     * Сохранение состояния
+     * @param path путь куда сохраним
+     * @param name имя файла
+     */
+    void save(String path, String name);
+
+    /**
+     * Выгружаем данные
+     * @param path
+     * @param name
+     * @return
+     */
+    static FabricModel load(String path, String name) {
+        return null;
+    }
 }

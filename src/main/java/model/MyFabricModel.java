@@ -1,13 +1,15 @@
 package model;
 
+import document.base.WorkDocument;
 import model.base.AbstractFabricListModel;
 import model.base.Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-public class MyFabricModel extends AbstractFabricListModel {
+public class MyFabricModel extends AbstractFabricListModel  implements WorkDocument {
 
     /**
      * Конструктор
@@ -50,6 +52,24 @@ public class MyFabricModel extends AbstractFabricListModel {
     }
 
 
+    /**
+     * Возвращает информацию об Объекте в текстовом виде
+     *
+     * @return информацию об Объектах
+     */
+    @Override
+    public List<HashMap> getSaveObjects() {
 
+        return null;
+    }
 
+    /**
+     * Из текста получает объекты
+     *
+     * @param objectsInformation информация об Объектах
+     */
+    @Override
+    public void loadObjects(List<HashMap>  objectsInformation) {
+
+    }
 }

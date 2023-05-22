@@ -79,8 +79,8 @@ public class CommandConsoleControllerUser extends AbstractCommandConsoleControll
         String status = consoleView.getString("Введите введите какое место вы получили или статус награды: ");
         String field = consoleView.getString("В какой областе: ");
         String date = consoleView.getString("Дата получение награды: ");
-
-        fabricModel.addModel(new Trophy(date,name, description, status, field, user));
+        int user_id = user.getId();
+        fabricModel.addModel(new Trophy(date,name, description, status, field, user_id));
 //        for (Field f: Trophy.class.getDeclaredFields()) {
 //            System.out.println();
 //            System.out.println(f.getType().getSimpleName());

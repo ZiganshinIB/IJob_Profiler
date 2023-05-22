@@ -43,6 +43,17 @@ public abstract class AbstractFabricListModel implements FabricModel {
     }
 
     /**
+     * Сохранение состояния
+     *
+     * @param path путь куда сохраним
+     * @param name имя файла
+     */
+    @Override
+    public void save(String path, String name) {
+
+    }
+
+    /**
      * Удаляет все Объекты
      */
     @Override
